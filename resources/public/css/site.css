@@ -1,0 +1,111 @@
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Helvetica Neue', Verdana, Helvetica, Arial, sans-serif;
+    max-width: 65%;
+    margin: 0 auto;
+    padding-top: 72px;
+    -webkit-font-smoothing: antialiased;
+    font-size: 1.125em;
+    color: #444;
+    line-height: 1.5em;
+    background: #F6F8FA;
+    
+}
+
+
+
+h1, h2, h3 {
+    color: #000;
+}
+h1 {
+    font-size: 2.5em
+}
+
+h2 {
+    font-size: 2em
+}
+
+h3 {
+    font-size: 1.5em
+}
+h4 {
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+    color: #09f;
+}
+
+div.list-item {
+    text-align: center;
+    height: 100px;
+    display: flex;
+    margin: 6px;
+    border-style: solid;
+    border-width: 0.01px;
+    border-color: #AFB1B3;
+    border-radius: 3px;
+    background: #FFFFFF;
+    justify-content: space-between;
+
+    
+}
+
+div.list-unit {
+    flex: 1 1 0px;
+    padding: 5px;
+    flex-grow: 4;
+    text-align: center;
+    margin: auto;
+}
+
+
+div.color-blob{
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    border-style: solid;
+    border-width: 0.5px;
+    margin: 2px;
+}
+
+div.color{
+    display: flex;
+    justify-content: center;
+}
+
+
+div.bar{
+    text-align: center;
+    height: 50px;
+    display: flex;
+    //margin: 6px;
+    border-style: solid;
+    border-width: 0.1px;
+    border-color: #AFB1B3;
+    border-radius: 3px;
+    background: #FFFFFF;
+    justify-content: space-between;
+    
+}
+
+div.tab {
+    flex: 1;
+    //padding: 5px;
+    flex-grow: 4;
+    text-align: center;
+    margin: 0 auto;
+}
+
+div.tab:hover {
+    background: #E1E3E6;
+}
+
+a:hover {
+    text-decoration: underline;
+}
