@@ -38,36 +38,46 @@
   (when-not (empty? products)
 
     [:div.list
-     (for [product (take 50 products)]
+     (for [product (take 300 products)] ;; reasonable amount
        ^{:key product}
        [:div  [show-list-item product]]
        )]))
+
+#_(defn how-many []
+  [:div
+   "Items per page"
+    [:input.toggle {:type "radio" 
+                    :on-change (rf/dispatch [:set-show 50])}] "50"
+       [:input.toggle {:type "radio" 
+                       :on-change (rf/dispatch [:set-show 100])}] "100"
+       [:input.toggle {:type "radio" 
+                        :on-change (rf/dispatch [:set-show 10000])}] "all (SLOW!)"])
 
 (defn tab [title view id]
   [:div.tab
    {:class-name (when (= id @view) "active")}
    [:a
     {:href     "#"
-     :on-click #(rf/dispatch [:select-view id])}
+     :on-click #(rf/dispatch [:select-view id])
+     
+     }
     title]])
-
-
 
 (defn tab-bar [view]
   [:div.bar
-   [tab "BEANIES" view :beanies]
-   [tab "FACEMASKS" view :facemasks]
-   [tab "GLOVES" view :gloves]
+   [tab [:h4 "BEANIES"] view :beanies]
+   [tab [:h4 "FACEMASKS"] view :facemasks]
+   [tab [:h4 "GLOVES"] view :gloves]
    ]
   )
 
 
 (defn main-panel []
   (let [view (rf/subscribe [:view])]
-
     [:div
+     #_[how-many]
+
      [tab-bar view]
-     
      (case @view
        :beanies (display-products @(rf/subscribe [:beanies]))
        :facemasks (display-products @(rf/subscribe [:facemasks]))

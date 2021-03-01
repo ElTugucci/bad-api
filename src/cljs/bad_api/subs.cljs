@@ -38,3 +38,8 @@
  :availability
  (fn [db _]
    (:availability db)))
+
+(rf/reg-sub
+ :show
+ (fn [db _]
+   (:show db)))

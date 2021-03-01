@@ -3,5 +3,5 @@
 (def default-db
   {:name "re-frame"
    :view :beanies
-   :show "50"
+   :show 50
    })

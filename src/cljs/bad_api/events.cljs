@@ -92,3 +92,9 @@
  (fn [db [_ product key]]
    (assoc db (keyword key) product)
    ))
+
+(rf/reg-event-db
+ :set-show
+ (fn [db [_ show]]
+   (assoc db :show show)
+   ))
