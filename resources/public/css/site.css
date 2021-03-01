@@ -10,7 +10,7 @@ body {
     padding-top: 72px;
     -webkit-font-smoothing: antialiased;
     font-size: 1.125em;
-    color: #444;
+    color: #565656;
     line-height: 1.5em;
     background: #F6F8FA;
     
@@ -38,7 +38,7 @@ h4 {
 
 a {
     text-decoration: none;
-    color: #09f;
+    color: #565656;
 }
 
 div.list-item {
@@ -74,22 +74,23 @@ div.color-blob{
     margin: 2px;
 }
 
-div.color{
+div.color {
     display: flex;
     justify-content: center;
 }
 
 
-div.bar{
+div.bar {
     text-align: center;
     height: 50px;
     display: flex;
+    flex-direction: row;
     //margin: 6px;
     border-style: solid;
     border-width: 0.1px;
     border-color: #AFB1B3;
     border-radius: 3px;
-    background: #FFFFFF;
+    background: #c5d2df;
     justify-content: space-between;
     
 }
@@ -97,13 +98,12 @@ div.bar{
 div.tab {
     flex: 1;
     //padding: 5px;
-    flex-grow: 4;
     text-align: center;
     margin: 0 auto;
 }
 
 div.tab:hover {
-    background: #E1E3E6;
+    background: #dfc5d2;
 }
 
 a:hover {

@@ -26,7 +26,7 @@
 
 (defn show-list-item [{:keys [id name type manufacturer color price]}]
   [:div.list-item
-   [:div.list-unit type]
+   #_[:div.list-unit type]
    [:div.list-unit (str "ᵇʸ " manufacturer )] 
    [:div.list-unit name]
    [:div.list-unit "colors" (display-colors color)]
@@ -51,11 +51,13 @@
      :on-click #(rf/dispatch [:select-view id])}
     title]])
 
+
+
 (defn tab-bar [view]
-  [:div.tab-bar
-   [tab "beanies" view :beanies]
-   [tab "facemasks" view :facemasks]
-   [tab "gloves" view :gloves]
+  [:div.bar
+   [tab "BEANIES" view :beanies]
+   [tab "FACEMASKS" view :facemasks]
+   [tab "GLOVES" view :gloves]
    ]
   )
 
