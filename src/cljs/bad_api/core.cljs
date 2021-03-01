@@ -1,11 +1,13 @@
 (ns bad-api.core
   (:require
+   [reagent.core :as r]
    [reagent.dom :as rdom]
    [re-frame.core :as re-frame]
    [bad-api.events :as events]
    [bad-api.views :as views]
    [bad-api.config :as config]
    ))
+
 
 
 (defn dev-setup []

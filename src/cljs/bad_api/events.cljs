@@ -19,16 +19,23 @@
   (rf/dispatch [:set-products @btr/availability-list "availability"]))
 
 
-(defn get-availability [manufacturer-list]
-  (doseq [m manufacturer-list]
+(defn get-availability [manufacturer]
+  
     (go (let [response (<! (http/get (str btr/proxy
-                                          "https://bad-api-assignment.reaktor.com/v2/availability/" m)
-                                     {:with-credentials? false}))]
-          (into-availability-list (:response (:body response)))
-          #_(print (str m " " (:status response)))
-          ))))
+                                               "https://bad-api-assignment.reaktor.com/v2/availability/" manufacturer)
+                                          {:with-credentials? false}))]
+          ;; handling bad-api
+          
+          (if-not
+              (= (:response (:body response)) "[]") ;; < this is the bad part
 
+            (into-availability-list (:response (:body response)))
 
+            (get-availability manufacturer)  ;; retry
+                   ))))
+         
+
+;; dynamic creation of manufacturer list
 (defn get-manufacturer [item]
   (doseq [i item]
     (swap!  btr/manufacturer-list conj (:manufacturer i)))
@@ -36,7 +43,9 @@
   (reset! btr/manufacturer-list (distinct @btr/manufacturer-list)) ;; remove duplicates
   (print @btr/manufacturer-list)
   (rf/dispatch [:set-products @btr/manufacturer-list "manufacturers"])
-  (get-availability @btr/manufacturer-list) )
+
+(doseq [m @btr/manufacturer-list]
+  (get-availability m)) )
 
 
 
@@ -48,8 +57,11 @@
                                      {:with-credentials? false}))]
           
           (print (str product " " (:status response)))
-          (get-manufacturer (:body response))
           (rf/dispatch [:set-products  (:body response) product])
+
+          (if (= product "gloves")
+          (get-manufacturer (:body response))) ;; so that we populate manufacturer list once, hence call for availabil
+
           ))))
 
 
