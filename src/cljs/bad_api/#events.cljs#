@@ -62,10 +62,9 @@
             (api-get-products [product]))           
              
 
-              (if (= product (last btr/products-list))
-                (get-manufacturer (:body response))));; so that we populate manufacturer list once
+          (if (= product (last btr/products-list))
+            (get-manufacturer (:body response))));; so that we populate manufacturer list once
 
-             
            ))
 
 
