@@ -18,8 +18,8 @@ body {
 
 
 
-h1, h2, h3 {
-    color: #000;
+h1, h2, h3, h4 {
+    color: #565656;
 }
 h1 {
     font-size: 2.5em
@@ -34,6 +34,7 @@ h3 {
 }
 h4 {
     text-align: center;
+    
 }
 
 a {
@@ -110,6 +111,12 @@ a:hover {
     text-decoration: underline;
 }
 
-div.tab:active{
-background: #0a0e12;
+a {
+    display: block
+	     height: 100%;
+}
+
+div.tab:active
+{
+    background: #0a0e12;
 }
