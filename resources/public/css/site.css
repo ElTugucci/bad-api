@@ -32,10 +32,6 @@ h2 {
 h3 {
     font-size: 1.5em
 }
-h4 {
-    text-align: center;
-    
-}
 
 a {
     text-decoration: none;
@@ -53,8 +49,6 @@ div.list-item {
     border-radius: 3px;
     background: #FFFFFF;
     justify-content: space-between;
-
-    
 }
 
 div.list-unit {
@@ -80,30 +74,29 @@ div.color {
     justify-content: center;
 }
 
-
 div.bar {
-    text-align: center;
-    height: 50px;
+    //text-align: center;
+    //height: 50px;
     display: flex;
-    flex-direction: row;
-    //margin: 6px;
+    //flex-direction: row;
+    margin: 6px;
     border-style: solid;
     border-width: 0.1px;
     border-color: #AFB1B3;
     border-radius: 3px;
     background: #c5d2df;
-    justify-content: space-between;
+    //justify-content: space-between;
     
 }
 
 div.tab {
     flex: 1;
-    //padding: 5px;
     text-align: center;
     margin: 0 auto;
+     
 }
 
-div.tab:hover {
+div.tab.active {
     background: #dfc5d2;
 }
 
@@ -116,7 +109,6 @@ a {
 	     height: 100%;
 }
 
-div.tab:active
-{
-    background: #0a0e12;
-}
+
+
+
